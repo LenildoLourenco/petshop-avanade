@@ -16,11 +16,11 @@ let pets = [
         nome: 'Spyke',
         tipo: 'Cachorro',
         idade: 8,
-        raca: 'Dog Alemão',
+        raca: 'Box Alemão',
         peso: 8,
         tutor: 'Lenildo',
         contato: '81 9888-9888',
-        vacinado: true,
+        vacinado: false,
         servicos: ['Banho', 'Tosa']
      },
      {
@@ -39,10 +39,22 @@ let pets = [
 
 const listarPets = () => {
     for(let pet of pets){
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}, ${pet.vacinado}`);
     }
 }
 
+const vacinarPet = (pet) => {
+    if(pet.vacinado == false) {
+        pet.vacinado = true
+    }
+ 
+  console.log( `${pet.nome}, "Vacinado com Sucesso!!!"`
+  
+  )
+ }
+
+ vacinarPet(pets[1]);
+
 //console.log(pets);
 
-listarPets();
+//listarPets();
