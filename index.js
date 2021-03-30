@@ -50,10 +50,15 @@ const campanhaVacina = () => {
     console.log(`${petVacinadosCampanha} pets foram vaciados nessa campanha!`);
 };
 
-const adicionarPet = novoPet => {
+const adicionarPet = (...novosPets) => {
+    novosPets.forEach((novoPet) => {
         bancoDados.pets.push(novoPet);
-        atualizarBanco();
-        console.log(`${novoPet.nome} foi adicionado com sucesso!`);
+    })
+
+    atualizarBanco();
+    novosPets.forEach((pet) => {
+        console.log(`${pet.nome} foi adicionado com sucesso!`);
+    })
 }
 
 const darBanhoPet = pet => {
@@ -143,8 +148,42 @@ const filtrarRaca = (nomeRaca) => {
     })
 }
 
+adicionarPet({
+    "nome": "Badu",
+    "tipo": "gato",
+    "idade": 5,
+    "raca": "American",
+    "peso": 8,
+    "tutor": "Doug",
+    "contato": "(11) 99999-9999",
+    "vacinado": true,
+    "servicos": []
+},
+{
+    "nome": "Sintaxe",
+    "tipo": "gato",
+    "idade": 3,
+    "raca": "American",
+    "peso": 6,
+    "tutor": "Hendy",
+    "contato": "(11) 99999-9999",
+    "vacinado": true,
+    "servicos": []
+},
+{
+    "nome": "Scooby",
+    "tipo": "cachorro",
+    "idade": 15,
+    "raca": "Box",
+    "peso": 28,
+    "tutor": "Lenildo",
+    "contato": "(81) 99999-9999",
+    "vacinado": true,
+    "servicos": []
+});
 
-filtrarRaca('Pastor Alemão');
+
+//filtrarRaca('Pastor Alemão');
 
 //filtrarTutor('Lenildo');
 
